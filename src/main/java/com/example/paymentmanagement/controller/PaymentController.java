@@ -36,7 +36,6 @@ public class PaymentController {
 
     @PostMapping(value = "/return", consumes = MediaType.APPLICATION_FORM_URLENCODED_VALUE)
     public String getPaymentReturnData(@RequestBody MultiValueMap<String, String> paymentResponseMap) {
-        System.out.println(paymentResponseMap);
         return "success";
     }
 
@@ -47,8 +46,8 @@ public class PaymentController {
         String reference = "RC-1234";
         String amount = "10000000";
         String currency = "ZAR";
-        String notifyUrl = "http://www.mycomputer.com/transaction/verification/notify-payment";
-        String returnUrl = "http://www.mycomputer.com/transaction/return";
+        String notifyUrl = "https://phakamanicreche.azurewebsites.net/transaction/verification/notify-payment";
+        String returnUrl = "https://phakamanicreche.azurewebsites.net/transaction/return";
         String transactionDate = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
         String locale = "en-za";
         String country = "ZAF";
