@@ -1,4 +1,4 @@
-package com.example.paymentmanagement;
+package phakamani.creche.website;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
