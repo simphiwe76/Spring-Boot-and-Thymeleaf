@@ -35,7 +35,8 @@ public class PaymentController {
     }
 
     @PostMapping(value = "/return", consumes = MediaType.APPLICATION_FORM_URLENCODED_VALUE)
-    public String getPaymentReturnData(@RequestBody MultiValueMap<String, String> paymentResponseMap) {
+    public String getPaymentReturnData(@RequestBody MultiValueMap<String, String> paymentResponseMap,Model model) {
+        model.addAttribute("text",paymentResponseMap.toString());
         return "success";
     }
 
