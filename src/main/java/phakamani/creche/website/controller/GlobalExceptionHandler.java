@@ -8,10 +8,11 @@ import org.springframework.web.servlet.ModelAndView;
 
 @ControllerAdvice
 public class GlobalExceptionHandler {
-
     @ExceptionHandler({ ResourceNotFoundException.class })
     @ResponseStatus(HttpStatus.NOT_FOUND)
     public ModelAndView handleNotFoundException(Exception ex) {
-        return new ModelAndView("index");
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.setViewName("index");
+        return modelAndView;
     }
 }
