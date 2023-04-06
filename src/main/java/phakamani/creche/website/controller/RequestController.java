@@ -16,12 +16,6 @@ public class RequestController {
         return "index";
     }
 
-
-    @RequestMapping
-    public String handleRequest() {
-        return "index";
-    }
-
     @RequestMapping(value = "/About")
     public  String about (){
         return "about";
