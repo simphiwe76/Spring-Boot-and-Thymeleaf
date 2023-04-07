@@ -12,7 +12,7 @@ import reactor.core.publisher.Mono;
 import util.Util;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.Map;
+
 
 
 @Controller
@@ -28,19 +28,14 @@ public class PaymentController {
         return "checkout";
     }
 
-    @PostMapping(value = "/notify",
+    @PostMapping(value = "/verification/notify-payment",
             consumes = MediaType.APPLICATION_FORM_URLENCODED_VALUE)
-    public String getNotifyPayment(@RequestBody MultiValueMap<String, String> notification,Model model) {
-        System.out.println(notification);
-        model.addAttribute("text",notification.toString());
-        return "notify";
+    public void getNotifyPayment(@RequestBody MultiValueMap<String, String> notification) {
+        System.out.println("Notification Url data = " + notification);
     }
 
     @PostMapping(value = "/return", consumes = MediaType.APPLICATION_FORM_URLENCODED_VALUE)
-    public String getPaymentReturnData(@RequestBody MultiValueMap<String, String> paymentResponseMap, Model model) {
-        String str = paymentResponseMap.getFirst("TRANSACTION_STATUS");
-        System.out.println(str);
-
+    public String getPaymentReturnData(@RequestBody MultiValueMap<String, String> paymentResponseMap,Model model) {
         model.addAttribute("text",paymentResponseMap.toString());
         return "success";
     }
@@ -52,7 +47,7 @@ public class PaymentController {
         String reference = "RC-1234";
         String amount = "10000000";
         String currency = "ZAR";
-        String notifyUrl = "https://phakamanicreche.azurewebsites.net/transaction/notify";
+        String notifyUrl = "https://phakamanicreche.azurewebsites.net/transaction/verification/notify-payment";
         String returnUrl = "https://phakamanicreche.azurewebsites.net/transaction/return";
         String transactionDate = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
         String locale = "en-za";
@@ -100,5 +95,6 @@ public class PaymentController {
 
         return  "payment";
     }
+
 }
 

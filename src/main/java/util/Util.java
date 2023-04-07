@@ -5,7 +5,6 @@ import org.springframework.util.DigestUtils;
 import java.util.HashMap;
 import java.util.Map;
 
-
 public final class Util {
     private Util() {
     }

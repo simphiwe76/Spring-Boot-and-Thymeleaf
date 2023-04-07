@@ -11,17 +11,6 @@
 </head>
 <body>
 
-<form action="https://sandbox.payfast.co.za/eng/process" method="post">
-    <input type="hidden" name="merchant_id" value="10000100">
-    <input type="hidden" name="merchant_key" value="46f0cd694581a">
-    <input type="hidden" name="amount" value="100.00">
-    <input type="hidden" name="item_name" value="Test Product">
-    <input type="hidden" name="return_url" value="http://localhost:8090/transaction/return">
-    <input type="hidden" name="cancel_url" value="https://www.example.com/cancel">
-    <input type="hidden" name="email_address" value="simphiwemthanti76@gmail.com">
-    <input type="hidden" name="notify_url" value="http://localhost:8090/transaction/verification/notify-payment">
-    <input type="submit">
-</form>
 
 <form th:action="@{/transaction/process}" method="post">
     <div class="text-center ">
@@ -31,6 +20,5 @@
     </div>
 </form>
 
-<script async src="https://content.payfast.co.za/widgets/moretyme/widget.min.js?amount=<?php echo $product->get_price(); ?>" type="text/javascript"></script>
 </body>
 </html>
